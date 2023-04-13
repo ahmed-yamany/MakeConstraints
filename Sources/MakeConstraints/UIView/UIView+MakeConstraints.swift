@@ -9,14 +9,14 @@ import UIKit
 
 public struct AnchoredConstraints {
     // These properties store the constraints for the edges and size of the view
-    var top: NSLayoutConstraint?
-    var leading: NSLayoutConstraint?
-    var bottom: NSLayoutConstraint?
-    var trailing: NSLayoutConstraint?
-    var centerX: NSLayoutConstraint?
-    var centerY: NSLayoutConstraint?
-    var width: NSLayoutConstraint?
-    var height: NSLayoutConstraint?
+    public var top: NSLayoutConstraint?
+    public var leading: NSLayoutConstraint?
+    public var bottom: NSLayoutConstraint?
+    public var trailing: NSLayoutConstraint?
+    public var centerX: NSLayoutConstraint?
+    public var centerY: NSLayoutConstraint?
+    public var width: NSLayoutConstraint?
+    public var height: NSLayoutConstraint?
 }
 extension UIView {
     // This method creates constraints for the edges and size of the view
