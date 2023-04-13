@@ -1,6 +1,6 @@
 # MakeConstraints
 
-The way I follow to make UI Constraints easily, I converted it to a package that you can easily use
+The way I follow to easily make UI Constraints , I converted it to a package that you can easily use
 
 Add to your project using Swift Package Manager
 
