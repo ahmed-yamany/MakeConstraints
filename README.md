@@ -47,7 +47,7 @@ Or fill to its super view
 
 ```
 
-you can fill with padding
+fill super view with padding
 
 ```swift 
 
@@ -66,7 +66,7 @@ you can fill with padding
 
 ```
 
-you can make constraints from all view's anchors
+make constraints from all view's anchors
 
 ```swift 
     let padding = UIEdgeInsets(top: 44,left: 24,
@@ -81,5 +81,17 @@ you can make constraints from all view's anchors
         
     button.makeConstraints(topAnchor: imageView.bottomAnchor,
                             centerXAnchor: imageView.leadingAnchor)
+
+```
+
+update view's sizes
+``` swift 
+
+    button.sizeConstraints(width: 200, height: 44)
+        
+    button.widthConstraints(200)
+    button.heightConstraints(44)
+        
+    imageView.equalSizeConstraints(300)
 
 ```
