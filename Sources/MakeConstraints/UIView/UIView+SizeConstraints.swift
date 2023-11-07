@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension UIView{
+extension UIView {
     /**
         The width of the view.
     */

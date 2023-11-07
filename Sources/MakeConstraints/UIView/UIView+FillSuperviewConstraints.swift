@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension UIView{
+extension UIView {
     /**
       Fills the view within its superview with optional padding on all sides.
       
@@ -25,13 +25,11 @@ extension UIView{
           - paddingLeft: The padding value to apply on the leading side of the view (default is 0).
           - paddingRight: The padding value to apply on the trailing side of the view (default is 0).
     */
-    public func fillXSuperView(paddingLeft: CGFloat = 0, paddingRight: CGFloat = 0){
+    public func fillXSuperView(paddingLeft: CGFloat = 0, paddingRight: CGFloat = 0) {
         translatesAutoresizingMaskIntoConstraints = false
-        
         if let superviewLeadingAnchor = superview?.leadingAnchor {
             leadingAnchor.constraint(equalTo: superviewLeadingAnchor, constant: paddingLeft).isActive = true
         }
-        
         if let superviewTrailingAnchor = superview?.trailingAnchor {
             trailingAnchor.constraint(equalTo: superviewTrailingAnchor, constant: -paddingRight).isActive = true
         }
@@ -43,17 +41,13 @@ extension UIView{
           - paddingTop: The padding value to apply on the top side of the view (default is 0).
           - paddingBottom: The padding value to apply on the bottom side of the view (default is 0).
     */
-    public func fillYSuperView(paddingTop: CGFloat = 0, paddingBottom: CGFloat = 0){
+    public func fillYSuperView(paddingTop: CGFloat = 0, paddingBottom: CGFloat = 0) {
         translatesAutoresizingMaskIntoConstraints = false
-        
         if let superviewTopAnchor = superview?.topAnchor {
             topAnchor.constraint(equalTo: superviewTopAnchor, constant: paddingTop).isActive = true
         }
-        
         if let superviewBottomAnchor = superview?.bottomAnchor {
             bottomAnchor.constraint(equalTo: superviewBottomAnchor, constant: -paddingBottom).isActive = true
         }
-        
-      
     }
 }

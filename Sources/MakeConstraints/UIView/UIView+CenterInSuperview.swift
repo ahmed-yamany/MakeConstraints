@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 extension UIView {
     /**
        Centers the view within its superview with optional size and position adjustments.
@@ -24,12 +23,11 @@ extension UIView {
                                   xConstant: CGFloat = 0,
                                   yConstant: CGFloat = 0) -> AnchoredConstraints {
         translatesAutoresizingMaskIntoConstraints = false
-        
         var anchoredConstraints = AnchoredConstraints()
-        
         if let superview = superview {
             anchoredConstraints.centerX = centerXAnchor.constraint(equalTo: superview.centerXAnchor, constant: xConstant)
-            anchoredConstraints.centerY = centerYAnchor.constraint(equalTo: superview.centerYAnchor, constant: yConstant)
+            anchoredConstraints.centerY = centerYAnchor.constraint(equalTo: superview.centerYAnchor,
+                                                                   constant: yConstant)
         }
         if size.width != 0 {
             anchoredConstraints.width = widthAnchor.constraint(equalToConstant: size.width)
@@ -37,11 +35,10 @@ extension UIView {
         if size.height != 0 {
             anchoredConstraints.height = heightAnchor.constraint(equalToConstant: size.height)
         }
-        [anchoredConstraints.centerX, anchoredConstraints.centerY, anchoredConstraints.width, anchoredConstraints.height].forEach{$0?.isActive = true}
-        
+        [anchoredConstraints.centerX, anchoredConstraints.centerY,
+         anchoredConstraints.width, anchoredConstraints.height].forEach { $0?.isActive = true }
         return anchoredConstraints
     }
-    
     /**
      Centers the view horizontally within its superview with an optional constant adjustment.
      
