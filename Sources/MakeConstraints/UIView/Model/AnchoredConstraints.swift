@@ -27,11 +27,11 @@ public struct AnchoredConstraints {
 
 public extension AnchoredConstraints {
     func activateAll() {
-      allCases.forEach { $0?.isActive = true }
+        allCases.forEach { $0?.activate() }
     }
     
     func deActivateAll() {
-      allCases.forEach { $0?.isActive = false }
+      allCases.forEach { $0?.deActivate() }
     }
 }
 

@@ -8,56 +8,68 @@
 import UIKit
 
 extension UIView {
-    /**
-     Creates a width constraint for the view with the specified constant.
-     
-     - Parameters:
-     - constant: The constant value for the width constraint.
-     
-     - Returns: The created `NSLayoutConstraint` for the width constraint.
-     */
     @discardableResult
-    public func widthConstraints(_ constant: CGFloat) -> NSLayoutConstraint {
+    public 
+    func widthConstraint(equalToConstant constant: CGFloat) -> NSLayoutConstraint {
         translatesAutoresizingMaskIntoConstraints = false
         let const = widthAnchor.constraint(equalToConstant: constant)
-        const.isActive = true
+        const.activate()
         return const
     }
     
-    /**
-     Creates a height constraint for the view with the specified constant.
-     
-     - Parameters:
-     - constant: The constant value for the height constraint.
-     
-     - Returns: The created `NSLayoutConstraint` for the height constraint.
-     */
     @discardableResult
-    public func heightConstraints(_ constant: CGFloat) -> NSLayoutConstraint {
+    public
+    func widthConstraint(greaterThanOrEqualToConstant constant: CGFloat) -> NSLayoutConstraint {
+        translatesAutoresizingMaskIntoConstraints = false
+        let const = widthAnchor.constraint(greaterThanOrEqualToConstant: constant)
+        const.activate()
+        return const
+    }
+    
+    @discardableResult
+    public
+    func widthConstraint(lessThanOrEqualToConstant constant: CGFloat) -> NSLayoutConstraint {
+        translatesAutoresizingMaskIntoConstraints = false
+        let const = widthAnchor.constraint(lessThanOrEqualToConstant: constant)
+        const.activate()
+        return const
+    }
+    
+    @discardableResult
+    public func heightConstraint(equalToConstant constant: CGFloat) -> NSLayoutConstraint {
         translatesAutoresizingMaskIntoConstraints = false
         let const = heightAnchor.constraint(equalToConstant: constant)
-        const.isActive = true
+        const.activate()
         return const
     }
     
-    /**
-     Creates equal width and height constraints for the view with the specified constant.
-     
-     - Parameters:
-     - constant: The constant value for both width and height constraints.
-     */
-    public func equalSizeConstraints(_ constant: CGFloat) -> (width: NSLayoutConstraint, height: NSLayoutConstraint) {
-        return (widthConstraints(constant), heightConstraints(constant))
+    @discardableResult
+    public
+    func heightConstraint(greaterThanOrEqualToConstant constant: CGFloat) -> NSLayoutConstraint {
+        translatesAutoresizingMaskIntoConstraints = false
+        let const = heightAnchor.constraint(greaterThanOrEqualToConstant: constant)
+        const.activate()
+        return const
     }
     
-    /**
-     Creates width and height constraints for the view with specified width and height constants.
-     
-     - Parameters:
-     - width: The constant value for the width constraint.
-     - height: The constant value for the height constraint.
-     */
-    public func sizeConstraints(width: CGFloat, height: CGFloat) -> (width: NSLayoutConstraint, height: NSLayoutConstraint) {
-        return (widthConstraints(width), heightConstraints(height))
+    @discardableResult
+    public
+    func heightConstraint(lessThanOrEqualToConstant constant: CGFloat) -> NSLayoutConstraint {
+        translatesAutoresizingMaskIntoConstraints = false
+        let const = heightAnchor.constraint(lessThanOrEqualToConstant: constant)
+        const.activate()
+        return const
+    }
+    
+    @discardableResult
+    public
+    func equalSizeConstraints(_ constant: CGFloat) -> (width: NSLayoutConstraint, height: NSLayoutConstraint) {
+        return (widthConstraint(equalToConstant: constant), heightConstraint(equalToConstant: constant))
+    }
+    
+    @discardableResult
+    public
+    func sizeConstraints(width: CGFloat, height: CGFloat) -> (width: NSLayoutConstraint, height: NSLayoutConstraint) {
+        return (widthConstraint(equalToConstant: width), heightConstraint(equalToConstant: height))
     }
 }

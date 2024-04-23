@@ -67,6 +67,6 @@ extension UIView {
 
 extension Array where Element == NSLayoutConstraint {
     func activate() {
-        forEach { $0.isActive = true }
+        forEach { $0.activate() }
     }
 }

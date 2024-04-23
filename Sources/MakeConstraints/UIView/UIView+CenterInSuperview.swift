@@ -59,7 +59,7 @@ extension UIView {
         translatesAutoresizingMaskIntoConstraints = false
         
         let constraint = centerXAnchor.constraint(equalTo: superview!.centerXAnchor, constant: constant)
-        constraint.isActive = true
+        constraint.activate()
         return constraint
     }
     
@@ -76,7 +76,7 @@ extension UIView {
     func centerYInSuperview(constant: CGFloat = 0) -> NSLayoutConstraint {
         translatesAutoresizingMaskIntoConstraints = false
         let constraint = centerYAnchor.constraint(equalTo: superview!.centerYAnchor, constant: constant)
-        constraint.isActive = true
+        constraint.activate()
         return constraint
     }
 }
