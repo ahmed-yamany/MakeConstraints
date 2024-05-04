@@ -6,30 +6,41 @@
 //
 
 import XCTest
+@testable import MakeConstraints
+import UIKit
 
 final class MakeConstraintsTests: XCTestCase {
-
+    
+    var view: UIView!
+    var button: UIButton!
+    
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        view = UIView()
+        button = UIButton()
+        view.addSubview(button)
     }
 
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        button.removeFromSuperview()
+    }
+    
+    func test_widthConstraints() throws {
+        let width = view.widthConstraint(equalToConstant: 100)
+        XCTAssertTrue(width.isActive)
+        XCTAssertTrue(width.constant == 100)
+    }
+    
+    func test_heightConstraints() throws {
+        let height = view.heightConstraint(equalToConstant: 100)
+        XCTAssertTrue(height.isActive)
+        XCTAssertTrue(height.constant == 100)
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    func test_sizeConstraints() throws {
+        let (width, height) = view.sizeConstraints(width: 100, height: 100)
+        XCTAssertTrue(width.isActive)
+        XCTAssertTrue(height.isActive)
+        XCTAssertTrue(width.constant == 100)
+        XCTAssertTrue(height.constant == 100)
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-
 }
